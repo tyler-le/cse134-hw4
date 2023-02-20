@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://kit.fontawesome.com/3c46798e71.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Tyler's Portfolio</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <nav class="mobile">
+          <i class="fa fa-bars"></i>
+        </nav>
+        <nav class="header-nav">
+          <a id="signature" href="#">TL</a>
+          <ul>
+            <li><a href="#about-me">ABOUT ME</a></li>
+            <li><a href="#experience">EXPERIENCE</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <!-- <li><a href="#labs">LABS</a></li> -->
+          </ul>
+        </nav>
+      </header>
+
+      <section id="about-me">
+        <article>
+          <p class="fade-in">Hello,</p>
+          <h3 class="fade-in">I'm Tyler Le</h3>
+          <p class="fade-in">Software Engineer Intern at Amazon</p>
+        </article>
+
+        <picture>
+          <source srcset="/" media="(max-width: 425px)">
+          <img
+            class="avatar fade-in"
+            src="assets/images/avatar.svg"
+            alt="Avatar Photo of Me"
+          />
+        </picture>
+      </section>
+
+      <section id="experience">
+        <h3 class="page-header">Experience</h3>
+
+        <div class="grid">
+          <div class="box">
+            <article>
+              <picture>
+                <img
+                  class="company-logo wiggle"
+                  src="assets/images/amazon.webp"
+                  alt="Amazon Logo"
+                  loading="lazy"
+                />
+              </picture>
+              <p>Summer 2023.</p>
+            </article>
+          </div>
+
+          <div class="box">
+            <article>
+              <picture>
+                <img
+                  class="company-logo"
+                  src="assets/images/general_atomics.webp"
+                  alt="General Atomics Logo"
+                  loading="lazy"
+                />
+              </picture>
+              <p>
+                Developed code on the Autonomous Takeoff and Landing Capability
+                for Unmanned Aerial Vehicles (UAVs).
+              </p>
+            </article>
+          </div>
+
+          <div class="box">
+            <article>
+              <picture>
+                <img
+                  class="company-logo"
+                  src="assets/images/cardea_bio.webp"
+                  alt="Cardea Bio Logo"
+                  loading="lazy"
+                />
+              </picture>
+              <p>
+                Automated science experiments with liquid-handling robots and
+                created an application to upload procedures to the robot.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h3 class="page-header">Projects</h3>
+        <article>
+          <h5>Autonomous Drone</h5>
+          <p>
+            Developed a fully autonomous drone using facial recognition and the
+            DJI Tello Python library.
+          </p>
+        </article>
+        <article>
+          <h5>Zoom Attendance Taker</h5>
+          <p>
+            Built a full-stack Flask web application, allowing users to upload a
+            screenshot of their Zoom meeting and to autonomously mark attendance
+            using facial recognition
+          </p>
+        </article>
+        <article>
+          <h5>Internship Tracker</h5>
+          <p>
+            Configured a comprehensive CI/CD pipeline using GitHub Actions for
+            automated linting, HTML validation, documentation generation and
+            testing of code changes. Wrote and executed automated E2E
+            (end-to-end) tests using Jest and Puppeteer.
+          </p>
+        </article>
+      </section>
+
+      <section id="contact">
+        <h3 class="page-header">Contact Me</h3>
+        <form action="#">
+          <fieldset>
+            <legend>Contact Me</legend>
+            <label for="fname">Name
+            <input
+              id="fname"
+              type="text"
+              placeholder="Enter Your Name"
+              required
+            /></label>
+            <br />
+            <label for="email">Email
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter Your Email"
+              required
+            /></label>
+            <br />
+            <label for="message">Message
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Enter a Message"
+              required
+            ></textarea></label>
+            <button type="submit">Submit</button>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- <section id="labs">
+        <hr />
+        <h2>EXTRA TAGS BELOW - TO BE DISCARDED</h2>
+        <hr />
+        <div>
+          This is a div, using a <span>span</span>
+          <b>am i bold?</b>
+          <strong>does bold look the same as strong?</strong>
+          <span>how about <i>italics</i> and <em>emphasis</em>?</span>
+          <code>cout &lt;&lt; "Hello World";</code>
+
+          <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+
+          <pre>
+This     is using
+
+            the pre         tag
+          </pre>
+          <aside>Aside</aside>
+          <iframe
+            src="https://vlipsy.com/embed/MzCA8MQv"
+            width="640"
+            height="360"
+          ></iframe>
+          <audio controls>
+            <source src="./sound.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+          <video width="320" height="240" controls>
+            <source src="./movie.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <canvas id="myCanvas" width="200" height="100"> </canvas>
+          <svg width="100" height="100">
+            <circle
+              cx="50"
+              cy="50"
+              r="40"
+              stroke="orange"
+              stroke-width="4"
+              fill="green"
+            />
+          </svg>
+
+          <ol>
+            <li>1. First</li>
+            <li>2. Second</li>
+            <li>3. Third</li>
+          </ol>
+          <select>
+            <optgroup label="group" disabled>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+            </optgroup>
+            <optgroup label="group" disabled>
+              <option>Option A</option>
+              <option>Option B</option>
+              <option>Option C</option>
+            </optgroup>
+          </select>
+
+          <label for="lang-choice">Choose a favorite language:</label>
+          <input list="langs" id="lang-choice" name="lang-choice" />
+
+          <datalist id="langs">
+            <option value="C++"></option>
+            <option value="Python"></option>
+            <option value="Java"></option>
+          </datalist>
+
+          <details>
+            <summary>Lorem</summary>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus beatae sequi voluptatem voluptates ad debitis obcaecati
+              nobis ipsum consequuntur! Vel veritatis quis quibusdam dolorum?
+              Sit culpa alias earum aliquid corporis!
+            </p>
+          </details>
+
+          <template><p>Hello</p></template>
+
+          <table>
+            <caption>
+              Probabilities
+            </caption>
+            <colgroup>
+              <col span="2" />
+              <col />
+            </colgroup>
+            <tr>
+              <th>Win</th>
+              <th>Lose</th>
+              <th>Tie</th>
+            </tr>
+            <tr>
+              <td>.5</td>
+              <td>.3</td>
+              <td>.2</td>
+            </tr>
+          </table>
+
+          <figure>
+            <img src="./figure.jpeg" alt="Surprise Figure" />
+            <figcaption>Never Gonna Give u up</figcaption>
+          </figure>
+          <hr />
+        </div>
+      </section> -->
+    </main>
+
+    <footer>
+      <nav>
+        <h5>Socials</h5>
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/in/le-tyler/" target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/tyler-le" target="_blank">GitHub</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav>
+        <h5>Contact</h5>
+        <ul>
+          <li>
+            <a href="mailto:le.tyler.h@gmail.com" target="_blank">Email</a>
+          </li>
+          <li><a href="tel:6193688172" target="_blank">Phone</a></li>
+        </ul>
+      </nav>
+
+      <nav>
+        <h5>Miscellaneous</h5>
+        <ul>
+          <li><a href="assets/images/Tyler_Le_Resume.pdf" download>Resume</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <!-- <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+      ctx.font = "30px Arial";
+      ctx.fillText("Hello World", 10, 50);
+    </script> -->
+  </body>
+</html>
