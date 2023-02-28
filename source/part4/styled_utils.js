@@ -3,11 +3,14 @@ import { handle_form_submission } from '../part3/dialog_handler.js';
 import {create_styled_post} from "./styledposts.js";
 import {populate_from_local_storage, save_to_local_storage} from "../utils/local_storage_utils.js";
 
-let data = [];
+let data = [{"title":"My First Post","date":"2023-03-06","summary":"Wow! This is my first post. So Cool!"},{"title":"I can make more?!","date":"2023-02-28","summary":"Amazing! Such a cool website"}];
 let dialog, posts_container;
 document.addEventListener('DOMContentLoaded', () => {
     populate_from_local_storage();
-    data = JSON.parse(localStorage.getItem("data")) || [];
+    data = JSON.parse(localStorage.getItem("data"));
+    if (data == null || data.length === 0) {
+        data = [{"title":"My First Post","date":"2023-03-06","summary":"Wow! This is my first post. So Cool!"},{"title":"I can make more?!","date":"2023-02-28","summary":"Amazing! Such a cool website"}];
+    }
     posts_container = document.getElementById("posts-container")
 
     dialog = document.createElement("dialog")
@@ -24,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("cancel-btn").addEventListener('click', () => {
         dialog.close();
     })
+    render_posts(data, posts_container)
 });
 
 function render_posts(data, posts_container) {
@@ -37,16 +41,17 @@ function render_posts(data, posts_container) {
 
 document.addEventListener('submit', function (event) {
     event.preventDefault();
-    if (event.target && event.target.nodeName === 'FORM') {
+    if (event.target && event.target.nodeName === 'FORM' && event.submitter !== document.getElementById('cancel-btn')) {
         const buttonData = event.target.elements.submitButton.getAttribute('data-action');
         if (buttonData === 'add') {
             data.push(handle_form_submission(event));
-            dialog.close();
             console.log(data);
             save_to_local_storage(data);
             render_posts(data, posts_container);
         }
     }
+    dialog.close();
+
 });
 
 document.addEventListener('click', function (event) {
@@ -84,6 +89,7 @@ document.addEventListener('click', function (event) {
         console.log('Delete button clicked:', event.target);
         console.log(buttonIndex)
         data.splice(buttonIndex, 1);
+        localStorage.setItem("data", JSON.stringify(data));
         render_posts(data, posts_container);
     }
 });

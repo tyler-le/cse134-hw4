@@ -1,9 +1,18 @@
+div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
 article {
 	background: grey;
 	padding: 10px 25px;
 	border: 2px solid black;
 	margin: 10px 0;
 	display:flex;
+	width: 50%;
+	flex: .5 .5 .25em;
 }
 
 ul {
@@ -36,4 +45,10 @@ button[id="submit-btn"] {
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+}
+
+.delete-btn, .edit-btn {
+	padding: 5px;
+	position: relative;
+
 }
