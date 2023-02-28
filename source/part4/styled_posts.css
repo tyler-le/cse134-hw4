@@ -1,0 +1,39 @@
+article {
+	background: grey;
+	padding: 10px 25px;
+	border: 2px solid black;
+	margin: 10px 0;
+	display:flex;
+}
+
+ul {
+	list-style: none;
+}
+
+.delete-btn, .edit-btn {
+	cursor: pointer;
+	width: 1.0rem;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+input[type="text"],
+input[type="date"],
+textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid black;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+button[id="submit-btn"] {
+	background-color: green;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}

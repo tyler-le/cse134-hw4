@@ -1,13 +1,10 @@
-// TODO These should be custom dialgoues, not using alert, confirm, prompt
 
 const alert_btn = document.getElementById("alert-btn");
 const confirm_btn = document.getElementById("confirm-btn");
 const prompt_btn = document.getElementById("prompt-btn");
 const safer_prompt_btn = document.getElementById("safer-prompt-btn");
+
 const output = document.querySelector('output');
-
-
-
 const dialog_2 = document.createElement("dialog");
 const label = document.createElement('label');
 const input = document.createElement('input');
@@ -29,23 +26,23 @@ document.body.appendChild(dialog_2);
 
 
 alert_btn.addEventListener("click", () => {
-    d.innerHTML = "<p>Alert Clicked</p>";
-    document.body.appendChild(d);
-    d.showModal();
+    dialog_2.innerHTML = "<p>Alert Clicked</p>";
+    document.body.appendChild(dialog_2);
+    dialog_2.showModal();
 
     const btn = document.createElement('button');
     btn.innerText = "Ok"
-    d.appendChild(btn);
+    dialog_2.appendChild(btn);
 
-    btn.addEventListener("click", () => { d.close(); });
+    btn.addEventListener("click", () => { dialog_2.close(); });
 
 });
 
 confirm_btn.addEventListener('click', () => {
 
-    d.innerHTML = "<p>Do You Confirm This?</p>";
-    document.body.appendChild(d);
-    d.showModal();
+    dialog_2.innerHTML = "<p>Do You Confirm This?</p>";
+    document.body.appendChild(dialog_2);
+    dialog_2.showModal();
 
 
     const cancel_btn = document.createElement('button');
@@ -53,18 +50,19 @@ confirm_btn.addEventListener('click', () => {
 
     const proceed_btn = document.createElement('button');
     proceed_btn.innerText = "Ok";
-    d.appendChild(cancel_btn);
-    d.appendChild(proceed_btn);
+    dialog_2.appendChild(cancel_btn);
+    dialog_2.appendChild(proceed_btn);
 
     proceed_btn.addEventListener("click", () => {
-        d.close();
+        dialog_2.close();
         output.textContent = `Confirm Result: True`;
     })
 
     cancel_btn.addEventListener("click", () => {
-        d.close();
+        dialog_2.close();
         output.textContent = `Confirm Result: False`;
     })
+    output.style.border="2px double black";
 });
 
 prompt_btn.addEventListener("click", () => {
@@ -72,7 +70,7 @@ prompt_btn.addEventListener("click", () => {
     proceed_btn.addEventListener("click", () => {
         dialog_2.close();
         let value = input.value;
-        if (value == null || value == "") { output.textContent = `User didn't enter anything`; }
+        if (value == null || value === "") { output.textContent = `User didn't enter anything`; }
         else { output.textContent = `The value returned by the prompt method is : ${value}` }
     })
 
@@ -80,6 +78,9 @@ prompt_btn.addEventListener("click", () => {
         dialog_2.close();
         output.textContent = `User didn't enter anything`;
     })
+
+    output.style.border="2px double black";
+
 
 });
 
@@ -90,7 +91,7 @@ safer_prompt_btn.addEventListener("click", () => {
         dialog_2.close();
         let dirty = input.value
         let clean = DOMPurify.sanitize(dirty);
-        if (clean == null || clean == "") { output.textContent = `User didn't enter anything`; }
+        if (clean == null || clean === "") { output.textContent = `User didn't enter anything`; }
         else { output.textContent = `The value returned by the safer prompt method is : ${clean}` }
     })
 
@@ -98,6 +99,8 @@ safer_prompt_btn.addEventListener("click", () => {
         dialog_2.close();
         output.textContent = `User didn't enter anything`;
     })
+    output.style.border="2px double black";
+
 });
 
 

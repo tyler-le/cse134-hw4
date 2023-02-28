@@ -1,4 +1,4 @@
-import { add_dialog_html, edit_dialog_html } from '../dialog.js';
+import { add_dialog_html, edit_dialog_html } from '../utils/dialog.js';
 
 function handle_form_submission(event) {
     event.preventDefault();

@@ -1,10 +1,14 @@
-import { add_dialog_html, edit_dialog_html } from '../dialog.js';
+import { add_dialog_html, edit_dialog_html } from '../utils/dialog.js';
 import { handle_form_submission } from './dialog_handler.js';
+import {populate_from_local_storage} from "../utils/local_storage_utils.js";
 
-const data = [];
+let data = [];
 let dialog, posts_container;
 document.addEventListener('DOMContentLoaded', () => {
+    data = JSON.parse(localStorage.getItem("data")) || [];
     posts_container = document.getElementById("posts-container")
+    render_posts(data, posts_container);
+    
 
     dialog = document.createElement("dialog")
     dialog.innerHTML = add_dialog_html();
@@ -20,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("cancel-btn").addEventListener('click', () => {
         dialog.close();
     })
+    
+    //populate_from_local_storage();
 });
 
 function render_posts(data, posts_container) {
@@ -53,12 +59,12 @@ document.addEventListener('submit', function (event) {
         if (buttonData === 'add') {
             data.push(handle_form_submission(event));
             dialog.close();
+            localStorage.setItem('data', JSON.stringify(data));
             render_posts(data, posts_container);
         }
     }
 });
 
-// Attach event listener to document
 document.addEventListener('click', function (event) {
     const posts_container = document.getElementById("posts-container")
 
@@ -79,6 +85,7 @@ document.addEventListener('click', function (event) {
                 const buttonData = event.target.elements.submitButton.getAttribute('data-action');
                 if (buttonData === 'edit') {
                     data[buttonIndex] = handle_form_submission(event);
+                    localStorage.setItem('data', JSON.stringify(data));
                     render_posts(data, posts_container)
                 }
             }
@@ -92,7 +99,6 @@ document.addEventListener('click', function (event) {
         console.log(buttonIndex)
         data.splice(buttonIndex, 1);
         render_posts(data, posts_container);
-
     }
 });
 

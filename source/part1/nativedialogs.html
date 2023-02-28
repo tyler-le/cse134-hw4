@@ -9,10 +9,13 @@
 
 </head>
 <body>
+    <h1>Simple Dialogs?</h1>
+
     <button id="alert-btn">Alert</button>
     <button id="confirm-btn">Confirm</button>
     <button id="prompt-btn">Prompt</button>
     <button id="safer-prompt-btn">Safer Prompt</button>
+    <hr>
     <output></output>
     
     <script>
@@ -28,20 +31,24 @@
 
        confirm_btn.addEventListener('click', () => {
         let value = window.confirm('Do you want to proceed?');
-        output.textContent = `The value returned by the confirm method is : ${value}`;
+        output.textContent = `Confirm result : ${value}`;
+        output.style.border="2px double black";
         });
 
         prompt_btn.addEventListener("click", () => {
             let value = window.prompt("Enter Something");
-            if (value == null || value == "") { output.textContent = `User didn't enter anything`;}
-            else {output.textContent = `The value returned by the prompt method is : ${value}`}
+            if (value == null || value === "") { output.textContent = `User didn't enter anything`;}
+            else {output.textContent = `Prompt result : ${value}`}
+            output.style.border="2px double black";
+
         });
 
         safer_prompt_btn.addEventListener("click", () => {
             let dirty = window.prompt("Enter Something");
             let clean = DOMPurify.sanitize(dirty);
-            if (clean == null || clean == "") { output.textContent = `User didn't enter anything`;}
+            if (clean == null || clean === "") { output.textContent = `User didn't enter anything`;}
             else {output.textContent = `The value returned by the prompt method is : ${clean}`}
+            output.style.border="2px double black";
         });
     </script>
 </body>
