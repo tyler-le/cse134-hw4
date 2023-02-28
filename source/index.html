@@ -32,7 +32,7 @@
     <main>
       <header>
         <nav class="mobile">
-          <i class="fa fa-bars"></i>
+          <i id="hamburger" class="fa fa-bars"></i>
         </nav>
         <nav class="header-nav">
           <a id="signature" href="#">TL</a>
@@ -44,6 +44,14 @@
           </ul>
         </nav>
       </header>
+      <div class="mobile-menu">
+        <ul>
+          <li><a href="#about-me">ABOUT ME</a></li>
+          <li><a href="#experience">EXPERIENCE</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
 
       <section id="about-me">
         <article>
@@ -53,7 +61,7 @@
         </article>
 
         <picture>
-          <source srcset="/" media="(max-width: 425px)">
+          <source srcset="assets/images/avatar.svg" media="(max-width: 425px)">
           <img
             class="avatar fade-in"
             src="assets/images/avatar.svg"
@@ -213,7 +221,7 @@
       </nav>
     </footer>
 
-
+    <script src="app.js"></script>
 
   </body>
 </html>

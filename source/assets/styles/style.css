@@ -339,3 +339,45 @@ footer nav a:hover {
   display: inline-block;
   animation: wiggle 2.5s infinite;
 }
+
+
+.mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mobile-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #333;
+  }
+
+  .mobile-menu li {
+    margin-bottom: 1px;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+  }
+}
