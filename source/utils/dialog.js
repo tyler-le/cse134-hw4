@@ -26,17 +26,17 @@ function edit_dialog_html(title, date, summary) {
     return `
     <form>
     <label for='title'> Title </label>
-    <input type='text' id='title' name='title' value=${title} >
+    <input type='text' id='title' name='title' value='${title}' >
 
     <br>
 
     <label for='date'> Date </label>
-    <input type='date' id='date' name='date' value=${date} >
+    <input type='date' id='date' name='date' value='${date}' >
 
     <br>
 
     <label for='summary'> Summary </label>
-    <input type='text' id='summary' name='summary' value=${summary}>
+    <input type='text' id='summary' name='summary' value='${summary}'>
 
     <br>
 
